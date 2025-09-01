@@ -48,8 +48,8 @@ export default function HoverExpand({
         {images.slice(0, maxThumbnails).map((imageUrl, i) => (
           <div
             key={`image-container-${i}`}
-            className={`group relative h-52 overflow-hidden rounded-2xl transition-all duration-300 ${
-              selectedIndex === i ? "w-64" : "w-4 sm:w-5 md:w-8 xl:w-12"
+            className={`group relative h-[500px] overflow-hidden rounded-2xl transition-all duration-300 ${
+              selectedIndex === i ? "w-[700px]" : "w-10 sm:w-16 md:w-20 xl:w-24"
             }`}
             onMouseEnter={() => setSelectedIndex(i)}
             onMouseLeave={() => setSelectedIndex(i)}
@@ -87,7 +87,7 @@ export default function HoverExpand({
             >
               <motion.div
                 layoutId={`image-${selectedIndex}`}
-                className="relative size-96"
+                className="relative size-[1000px]"
               >
                 <img
                   src={images[selectedIndex]}
