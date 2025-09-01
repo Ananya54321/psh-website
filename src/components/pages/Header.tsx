@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-            <span className="text-2xl hospital-blue font-bold">PS</span>
+            <Image src="/images/psh_logo.jpeg" alt="Pavan Sai Hospitals" width={48} height={48} className="rounded-full p-2" />
           </div>
           <div>
             <h1 className="text-2xl font-bold">Pavan Sai Hospitals</h1>
