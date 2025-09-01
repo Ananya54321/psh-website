@@ -7,7 +7,7 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="bg-hospital-green text-white py-16 px-6">
+    <section className="bg-hospital-blue text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
