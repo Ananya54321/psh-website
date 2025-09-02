@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pawan Sai Hospitals - Caring for Your Health",
+  title: "Pavan Sai Hospitals - Caring for Your Health",
   description: "Premier healthcare services with 24/7 emergency care, expert doctors, and state-of-the-art medical facilities. Your health is our priority.",
 };
 
