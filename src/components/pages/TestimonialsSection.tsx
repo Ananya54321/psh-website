@@ -1,6 +1,44 @@
 "use client";
 
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { Marquee } from "@/components/ui/marquee";
+import { Star } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface TestimonialCardProps {
+  quote: string;
+  name: string;
+  designation: string;
+  src: string;
+}
+
+function TestimonialCard({ quote, name, designation, src }: TestimonialCardProps) {
+  return (
+    <div className="mx-4 w-80 rounded-lg bg-white p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div className="mb-4">
+        <div className="flex mb-3">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+        <p className="text-gray-600 text-sm leading-relaxed italic">
+          "{quote}"
+        </p>
+      </div>
+      
+      <div className="flex items-center gap-3">
+        <img
+          src={src}
+          alt={name}
+          className="w-12 h-12 rounded-full object-cover border-2 border-hospital-blue/20"
+        />
+        <div>
+          <h4 className="font-semibold text-hospital-green">{name}</h4>
+          <p className="text-xs text-gray-500">{designation}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -49,7 +87,25 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+        <div className="relative">
+          {/* First row - left to right */}
+          <Marquee pauseOnHover className="[--duration:60s] mb-6">
+            {testimonials.slice(0, 3).map((testimonial, index) => (
+              <TestimonialCard key={index} {...testimonial} />
+            ))}
+          </Marquee>
+          
+          {/* Second row - right to left */}
+          <Marquee reverse pauseOnHover className="[--duration:80s]">
+            {testimonials.slice(2, 5).map((testimonial, index) => (
+              <TestimonialCard key={index} {...testimonial} />
+            ))}
+          </Marquee>
+          
+          {/* Gradient overlays */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-gray-50 to-transparent"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-gray-50 to-transparent"></div>
+        </div>
       </div>
     </section>
   );
