@@ -24,9 +24,9 @@ export default function Home() {
       <StatsSection />
       <DoctorsSection />
       <TestimonialsSection />
-      <AboutSection />
+      {/* <AboutSection /> */}
       <FAQSection />
-      <ContactSection />
+      {/* <ContactSection /> */}
       <Footer />
     </div>
   );
