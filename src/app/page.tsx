@@ -17,7 +17,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      {/* <ImportantAlert /> */}
+      {/* place the accepted insurances here */}
+      <ImportantAlert />
       <HeroSection />
       <FacilitiesSection />
       <ServicesSection />
