@@ -1,89 +1,114 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { toast } from "sonner";
+import Link from "next/link";
 
 export function HeroSection() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleAppointmentClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      toast.success("Appointment request submitted! We'll call you shortly.");
-    }, 2000);
-  };
-
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/psh_hero_section.png')"
+        backgroundImage: "url('/images/psh_hero_section.png')",
       }}
     >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center py-40 px-6">
+      <div className="relative z-10 flex items-center py-20 md:py-40 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto w-full">
           <div className="max-w-3xl">
-            <h2 className="text-6xl font-bold mb-6 text-white drop-shadow-lg">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg leading-tight">
               <span className="text-white">Your Health,</span>{" "}
               <span className="text-white">Our Priority</span>
             </h2>
-            <p className="text-2xl text-white mb-8 leading-relaxed drop-shadow-md">
-              At Pavan Sai Hospitals, we provide comprehensive healthcare services with 
-              compassion, expertise, and cutting-edge medical technology. Your well-being 
-              is our commitment.
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 leading-relaxed drop-shadow-md">
+              At Pavan Sai Hospitals, we provide comprehensive healthcare
+              services with compassion, expertise, and cutting-edge medical
+              technology. Your well-being is our commitment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button className="bg-hospital-blue hover:bg-blue-700 text-white px-8 py-4 text-xl shadow-lg">
-                    {isLoading ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Processing...
-                      </>
-                    ) : (
-                      "Book Appointment"
-                    )}
+                  <Button className="bg-hospital-blue hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl shadow-lg cursor-pointer">
+                    Book Appointment
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent>
+                <AlertDialogContent className="max-w-md rounded-lg bg-white">
                   <AlertDialogHeader>
-                    <AlertDialogTitle>Book Your Appointment</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      We'll connect you with our medical team to schedule your appointment. 
-                      Our staff will call you within 24 hours to confirm your preferred time and date.
-                    </AlertDialogDescription>
+                    <AlertDialogTitle className="text-2xl font-bold hospital-blue">
+                      Contact Us to Book
+                    </AlertDialogTitle>
+                    <div className="text-base text-gray-700 mt-4 space-y-4">
+                      <p>
+                        Please call our reception desk or cell line to schedule
+                        your appointment:
+                      </p>
+
+                      <div className="p-4 bg-gray-50 rounded-lg border border-gray-100 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold text-gray-600">
+                            Landline 1:
+                          </span>
+                          <a
+                            href="tel:040-24220599"
+                            className="font-bold text-lg hospital-blue hover:underline"
+                          >
+                            040-24220599
+                          </a>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold text-gray-600">
+                            Landline 2:
+                          </span>
+                          <a
+                            href="tel:040-24221599"
+                            className="font-bold text-lg hospital-blue hover:underline"
+                          >
+                            040-24221599
+                          </a>
+                        </div>
+                        <div className="flex items-center justify-between pt-2 border-t border-gray-200">
+                          <span className="font-semibold text-gray-600">
+                            Mobile / Cell:
+                          </span>
+                          <a
+                            href="tel:8801719855"
+                            className="font-bold text-lg hospital-green hover:underline"
+                          >
+                            8801719855
+                          </a>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-500 text-center">
+                        Our team is available to assist you.
+                      </p>
+                    </div>
                   </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction 
-                      onClick={handleAppointmentClick}
-                      className="bg-hospital-green hover:bg-green-700"
-                    >
-                      Confirm Request
-                    </AlertDialogAction>
+                  <AlertDialogFooter className="mt-4">
+                    <AlertDialogCancel className="bg-hospital-blue hover:bg-blue-700 text-white hover:text-white border-0 w-full sm:w-auto cursor-pointer">
+                      Close
+                    </AlertDialogCancel>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
-              
+
+              <Link href="/insurance" passHref>
+                <Button className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl shadow-lg transition-colors cursor-pointer">
+                  View Accepted Insurances
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface HoverExpandProps {
-  images: string[]
-  initialSelectedIndex?: number
-  thumbnailHeight?: number
-  modalImageSize?: number
-  maxThumbnails?: number
+  images: string[];
+  initialSelectedIndex?: number;
+  thumbnailHeight?: number;
+  modalImageSize?: number;
+  maxThumbnails?: number;
 }
 
 export default function HoverExpand({
@@ -19,28 +19,28 @@ export default function HoverExpand({
   maxThumbnails = 11,
 }: HoverExpandProps) {
   const [selectedIndex, setSelectedIndex] =
-    useState<number>(initialSelectedIndex)
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    useState<number>(initialSelectedIndex);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsModalOpen(false)
+        setIsModalOpen(false);
       }
-    }
+    };
 
     if (isModalOpen) {
-      document.body.classList.add("overflow-hidden")
-      document.addEventListener("keydown", handleKeyDown)
+      document.body.classList.add("overflow-hidden");
+      document.addEventListener("keydown", handleKeyDown);
     } else {
-      document.body.classList.remove("overflow-hidden")
+      document.body.classList.remove("overflow-hidden");
     }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown)
-      document.body.classList.remove("overflow-hidden")
-    }
-  }, [isModalOpen])
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isModalOpen]);
 
   return (
     <div className="relative">
@@ -54,8 +54,8 @@ export default function HoverExpand({
             onMouseEnter={() => setSelectedIndex(i)}
             onMouseLeave={() => setSelectedIndex(i)}
             onClick={() => {
-              setSelectedIndex(i)
-              setIsModalOpen(true)
+              setSelectedIndex(i);
+              setIsModalOpen(true);
             }}
           >
             <motion.div
@@ -100,5 +100,5 @@ export default function HoverExpand({
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }

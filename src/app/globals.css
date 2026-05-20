@@ -114,10 +114,10 @@
 
 /* Hospital Brand Colors */
 :root {
-  --hospital-blue: #3E8AA1;
-  --hospital-green: #07501B;
-  --hospital-orange: #D89C6B;
-  --hospital-white: #FFFFFF;
+  --hospital-blue: #3e8aa1;
+  --hospital-green: #07501b;
+  --hospital-orange: #d89c6b;
+  --hospital-white: #ffffff;
 }
 
 @layer base {
@@ -212,7 +212,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(62, 138, 161, 0.4);
   }
   50% {
@@ -242,15 +243,15 @@
 
 /* Gradient backgrounds */
 .gradient-hospital-blue {
-  background: linear-gradient(135deg, var(--hospital-blue) 0%, #2C6B7A 100%);
+  background: linear-gradient(135deg, var(--hospital-blue) 0%, #2c6b7a 100%);
 }
 
 .gradient-hospital-green {
-  background: linear-gradient(135deg, var(--hospital-green) 0%, #0A6B23 100%);
+  background: linear-gradient(135deg, var(--hospital-green) 0%, #0a6b23 100%);
 }
 
 .gradient-hospital-orange {
-  background: linear-gradient(135deg, var(--hospital-orange) 0%, #C4875A 100%);
+  background: linear-gradient(135deg, var(--hospital-orange) 0%, #c4875a 100%);
 }
 
 /* Card hover effects */
@@ -272,7 +273,7 @@
 }
 
 .btn-hospital-primary:hover {
-  background: #2C6B7A;
+  background: #2c6b7a;
   transform: translateY(-2px);
   box-shadow: 0 15px 25px -5px rgba(62, 138, 161, 0.4);
 }
@@ -283,7 +284,7 @@
 }
 
 .btn-hospital-secondary:hover {
-  background: #0A6B23;
+  background: #0a6b23;
   transform: translateY(-2px);
   box-shadow: 0 15px 25px -5px rgba(7, 80, 27, 0.4);
 }
@@ -295,10 +296,22 @@ html {
 
 /* Hero section background */
 .hero-pattern {
-  background-image: 
-    linear-gradient(135deg, rgba(62, 138, 161, 0.1) 0%, rgba(7, 80, 27, 0.1) 100%),
-    radial-gradient(circle at 25% 25%, rgba(216, 156, 107, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(62, 138, 161, 0.1) 0%, transparent 50%);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(62, 138, 161, 0.1) 0%,
+      rgba(7, 80, 27, 0.1) 100%
+    ),
+    radial-gradient(
+      circle at 25% 25%,
+      rgba(216, 156, 107, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(62, 138, 161, 0.1) 0%,
+      transparent 50%
+    );
 }
 
 /* Stats counter animation */

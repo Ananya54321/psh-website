@@ -19,6 +19,16 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -43,8 +53,8 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+    <div className="mx-auto max-w-sm sm:max-w-md md:max-w-4xl px-4 sm:px-6 md:px-8 py-10 md:py-20 font-sans antialiased lg:px-12">
+      <div className="relative grid grid-cols-1 gap-10 md:gap-20 md:grid-cols-2">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -65,7 +75,11 @@ export const AnimatedTestimonials = ({
                     zIndex: isActive(index)
                       ? 40
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
+                    y: isActive(index)
+                      ? isMobile
+                        ? [0, -20, 0]
+                        : [0, -80, 0]
+                      : 0,
                   }}
                   exit={{
                     opacity: 0,
@@ -118,7 +132,7 @@ export const AnimatedTestimonials = ({
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
+            <motion.p className="mt-6 text-base sm:text-lg text-gray-500 dark:text-neutral-300 leading-relaxed">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -144,16 +158,16 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4 pt-8 md:pt-4">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-neutral-800 transition-colors"
             >
               <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-neutral-800 transition-colors"
             >
               <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
             </button>

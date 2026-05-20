@@ -1,6 +1,5 @@
 import {
   Header,
-  ImportantAlert,
   HeroSection,
   FacilitiesSection,
   ServicesSection,
@@ -10,7 +9,7 @@ import {
   AboutSection,
   FAQSection,
   ContactSection,
-  Footer
+  Footer,
 } from "@/components/pages";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
       {/* place the accepted insurances here */}
-      <ImportantAlert />
       <HeroSection />
       <FacilitiesSection />
       <ServicesSection />

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface FlipCardProps {
@@ -19,9 +19,22 @@ interface FlipCardBackProps {
 }
 
 export function FlipCard({ children, className }: FlipCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className={cn("group perspective-1000 w-full h-80", className)}>
-      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+    <div
+      className={cn(
+        "group perspective-1000 w-full h-80 cursor-pointer",
+        className,
+      )}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div
+        className={cn(
+          "relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180",
+          isFlipped && "rotate-y-180",
+        )}
+      >
         {children}
       </div>
     </div>
@@ -30,10 +43,12 @@ export function FlipCard({ children, className }: FlipCardProps) {
 
 export function FlipCardFront({ children, className }: FlipCardFrontProps) {
   return (
-    <div className={cn(
-      "absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden",
-      className
-    )}>
+    <div
+      className={cn(
+        "absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden",
+        className,
+      )}
+    >
       {children}
     </div>
   );
@@ -41,10 +56,12 @@ export function FlipCardFront({ children, className }: FlipCardFrontProps) {
 
 export function FlipCardBack({ children, className }: FlipCardBackProps) {
   return (
-    <div className={cn(
-      "absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden rotate-y-180",
-      className
-    )}>
+    <div
+      className={cn(
+        "absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden rotate-y-180",
+        className,
+      )}
+    >
       {children}
     </div>
   );

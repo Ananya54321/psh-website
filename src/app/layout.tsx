@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pavan Sai Hospitals - Caring for Your Health",
-  description: "Premier healthcare services with 24/7 emergency care, expert doctors, and state-of-the-art medical facilities. Your health is our priority.",
+  description:
+    "Premier healthcare services with 24/7 emergency care, expert doctors, and state-of-the-art medical facilities. Your health is our priority.",
 };
 
 export default function RootLayout({
@@ -29,13 +30,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Toaster 
+        <Toaster
           position="top-right"
           toastOptions={{
             style: {
-              background: '#3E8AA1',
-              color: 'white',
-              border: 'none',
+              background: "#3E8AA1",
+              color: "white",
+              border: "none",
             },
           }}
         />
