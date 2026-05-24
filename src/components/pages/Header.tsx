@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,18 +11,16 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Image from "next/image";
-import Link from "next/link";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-hospital-blue text-white py-3 px-4 sm:px-6 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex justify-between md:grid md:grid-cols-3 items-center">
         <Link
           href="/"
-          className="flex items-center space-x-2 sm:space-x-4 cursor-pointer hover:opacity-90 transition-opacity"
+          className="flex items-center space-x-2 sm:space-x-4 cursor-pointer hover:opacity-90 transition-opacity justify-self-start"
         >
           <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
             <Image
@@ -41,36 +41,44 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:block">
+        {/* Desktop Navigation - 2nd Part (Middle links) */}
+        <div className="hidden md:block justify-self-center">
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="flex gap-2">
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/#services"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-black focus:text-black cursor-pointer"
-                >
-                  Services
-                </NavigationMenuLink>
+                <Link href="/#services" passHref legacyBehavior>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors hover:text-hospital-orange focus:text-hospital-orange cursor-pointer text-white">
+                    Services
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/#doctors"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-black focus:text-black cursor-pointer"
-                >
-                  Doctors
-                </NavigationMenuLink>
+                <Link href="/#doctors" passHref legacyBehavior>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors hover:text-hospital-orange focus:text-hospital-orange cursor-pointer text-white">
+                    Doctors
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="tel:8801719855"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold text-hospital-orange transition-colors hover:text-white focus:text-white cursor-pointer"
-                >
-                  📞 8801719855
-                </NavigationMenuLink>
+                <Link href="/insurance" passHref legacyBehavior>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors hover:text-hospital-orange focus:text-hospital-orange cursor-pointer text-white">
+                    Insurances
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+        </div>
+
+        {/* Desktop Contact - 3rd Part */}
+        <div className="hidden md:block justify-self-end">
+          <a
+            href="tel:8801719855"
+            className="inline-flex h-10 items-center justify-center rounded-md bg-hospital-orange hover:bg-orange-600 px-4 text-sm font-bold text-white transition-colors cursor-pointer shadow-md gap-1.5"
+          >
+            <span>📞</span>
+            <span>8801719855</span>
+          </a>
         </div>
 
         {/* Mobile Navigation */}
@@ -84,6 +92,7 @@ export function Header() {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
+                  <title>Menu</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -115,6 +124,13 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Doctors
+                </Link>
+                <Link
+                  href="/insurance"
+                  className="text-lg font-medium hover:text-hospital-blue transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Insurances
                 </Link>
                 <a
                   href="tel:8801719855"
