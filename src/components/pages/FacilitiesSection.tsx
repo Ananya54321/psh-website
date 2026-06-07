@@ -81,21 +81,18 @@ export function FacilitiesSection() {
 
           {/* Third Card for Many More Laboratory Facilities */}
           <Card className="overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-slate-50">
-            <CardContent className="p-8 flex-1 flex flex-col justify-between">
+            <CardContent className="px-8 pb-8 pt-4 flex-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="p-3 bg-hospital-green/10 rounded-lg text-hospital-green text-2xl">
                     <FaMicroscope />
                   </div>
-                  <h3 className="text-2xl font-semibold hospital-green">
+                  <h3 className="text-2xl font-semibold hospital-green mt-0">
                     Laboratory Facilities
                   </h3>
                 </div>
 
-                <h4 className="text-lg font-medium hospital-blue mb-4">
-                  Many More Facilities Available
-                </h4>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-2">
                   Beyond our advanced imaging services, our hospital is equipped
                   with comprehensive testing and diagnostic labs operating 24/7.
                 </p>
