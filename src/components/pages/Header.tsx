@@ -47,25 +47,25 @@ export function Header() {
             <NavigationMenuList className="flex gap-2">
               <NavigationMenuItem>
                 <Link href="/#services" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white">
+                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
                     Services
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/#doctors" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white">
+                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
                     Doctors
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/insurance" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white">
+                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
                     Insurances
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
