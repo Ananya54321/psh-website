@@ -5,6 +5,8 @@ import {
   Activity,
   Award,
   Brain,
+  ChevronDown,
+  ChevronUp,
   Clock,
   Heart,
   HeartPulse,
@@ -14,11 +16,13 @@ import {
   User,
 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export function DoctorsSection() {
+  const [showAll, setShowAll] = useState(false);
   const otherDoctors = [
     {
-      name: "Dr. A. Srinivas",
+      name: "Dr. Aleti Srinivas",
       specialty: "Senior Consultant",
       icon: Stethoscope,
     },
@@ -28,32 +32,22 @@ export function DoctorsSection() {
       icon: Activity,
     },
     {
-      name: "Dr. Vino",
-      specialty: "Consultant Physician",
-      icon: Stethoscope,
-    },
-    {
       name: "Dr. Shashidhar",
       specialty: "Emergency & ICU",
       icon: HeartPulse,
     },
     {
-      name: "Dr. Srikanth",
-      specialty: "Neuro",
-      icon: Brain,
-    },
-    {
-      name: "Dr. Vinod Kumar",
-      specialty: "General Medicine",
+      name: "Dr. Ujwal Kumar",
+      specialty: "General",
       icon: User,
     },
     {
-      name: "Dr. Rajakiran",
+      name: "Dr. Rajkiran",
       specialty: "Plastic",
       icon: Sparkles,
     },
     {
-      name: "Dr. Ponthan",
+      name: "Dr. Pruthvi",
       specialty: "Cardio",
       icon: Heart,
     },
@@ -91,14 +85,14 @@ export function DoctorsSection() {
   return (
     <section
       id="doctors"
-      className="py-16 md:py-24 px-4 sm:px-6 bg-slate-50/50 scroll-mt-20 overflow-hidden relative"
+      className="py-12 md:py-16 px-4 sm:px-6 bg-slate-50/50 scroll-mt-20 overflow-hidden relative"
     >
       {/* Background patterns and glowing mesh blobs */}
       <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-hospital-blue/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-[20%] right-[-10%] w-[300px] h-[300px] bg-hospital-green/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +109,7 @@ export function DoctorsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold mb-4 leading-tight tracking-tight text-gray-900"
+            className="text-3xl md:text-4xl font-bold mb-2 leading-tight tracking-tight text-gray-900"
           >
             Meet Our <span className="text-hospital-blue">Expert Doctors</span>
           </motion.h2>
@@ -133,7 +127,7 @@ export function DoctorsSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Column: Featured Main Doctor (Dr. Srinivas) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -142,46 +136,42 @@ export function DoctorsSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex flex-col h-full"
           >
-            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden group hover:shadow-2xl hover:border-hospital-blue/10 transition-all duration-300">
+            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 flex flex-col justify-between h-full relative overflow-hidden group hover:shadow-2xl hover:border-hospital-blue/10 transition-all duration-300">
               {/* Glowing backdrop shape */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-hospital-blue/5 rounded-full blur-2xl pointer-events-none group-hover:bg-hospital-blue/10 transition-all duration-300" />
 
               <div>
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-hospital-blue/10 text-hospital-blue">
                     <Award className="w-3.5 h-3.5" />
                     Chief Medical Consultant
                   </span>
                 </div>
 
-                {/* Custom image layout with neat border/glow */}
-                <div className="relative aspect-square w-full max-w-[280px] sm:max-w-xs mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-hospital-blue/10 shadow-lg group-hover:border-hospital-blue/30 transition-all duration-300">
-                  <Image
-                    src="/images/dr_srinivas.png"
-                    alt="Dr. Srinivas"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="w-full flex justify-center mb-4">
+                  <div className="rounded-2xl overflow-hidden border-2 border-hospital-blue/10 shadow-lg group-hover:border-hospital-blue/30 transition-all duration-300">
+                    <Image
+                      src="/images/dr_srinivas.png"
+                      alt="Dr. Aleti Srinivas"
+                      width={400} // use image's natural width
+                      height={500} // use image's natural height
+                      className="h-auto w-auto max-w-[180px] sm:max-w-[200px] object-contain"
+                    />
+                  </div>
                 </div>
 
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Dr. Srinivas
+                    Dr. Aleti Srinivas
                   </h3>
-                  <p className="text-sm font-semibold text-hospital-green mb-4">
+                  <p className="text-sm font-semibold text-hospital-green mb-2">
                     Senior Consultant & Chief Surgeon
-                  </p>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed italic mb-8 max-w-md mx-auto md:mx-0">
-                    "Dedicated to delivering exceptional medical care with
-                    compassion, expertise, and a commitment to clinical
-                    excellence for every patient."
                   </p>
                 </div>
               </div>
 
               {/* Experience highlights */}
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-100 mt-auto">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100 mt-auto">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-hospital-blue/5 text-hospital-blue">
                     <Clock className="w-4 h-4" />
@@ -218,13 +208,13 @@ export function DoctorsSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 flex flex-col h-full"
           >
-            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-6 md:p-8 flex flex-col h-full justify-between">
+            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 flex flex-col h-full justify-between">
               <div>
-                <div className="mb-6 pb-4 border-b border-gray-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                <div className="mb-4 pb-3 border-b border-gray-100">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">
                     Our Specialized Medical Team
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs text-gray-500">
                     A network of leading specialists collaborating to deliver
                     comprehensive care.
                   </p>
@@ -235,21 +225,25 @@ export function DoctorsSection() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
-                  {otherDoctors.map((doc) => {
+                  {otherDoctors.map((doc, idx) => {
                     const Icon = doc.icon;
+                    const isHiddenOnMobile = idx >= 4;
                     return (
                       <motion.div
                         key={`${doc.name}-${doc.specialty}`}
                         variants={itemVariants}
-                        className="group p-4 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default"
+                        className={`group p-2.5 px-3.5 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default ${isHiddenOnMobile && !showAll
+                          ? "hidden lg:flex"
+                          : "flex"
+                          }`}
                       >
-                        <div className="flex-shrink-0 p-2.5 rounded-xl bg-white group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50">
-                          <Icon className="w-5 h-5" />
+                        <div className="flex-shrink-0 p-2 rounded-xl bg-white group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50">
+                          <Icon className="w-4 h-4" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-gray-800 text-sm sm:text-base group-hover:text-hospital-blue transition-colors duration-300 truncate">
+                          <h4 className="font-semibold text-gray-800 text-sm group-hover:text-hospital-blue transition-colors duration-300 truncate">
                             {doc.name}
                           </h4>
                           <p className="text-xs text-gray-500 font-semibold group-hover:text-hospital-green transition-colors duration-300 truncate">
@@ -260,6 +254,21 @@ export function DoctorsSection() {
                     );
                   })}
                 </motion.div>
+
+                <div className="mt-4 text-center lg:hidden">
+                  <button
+                    type="button"
+                    onClick={() => setShowAll(!showAll)}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold border border-hospital-blue text-hospital-blue hover:bg-hospital-blue hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                  >
+                    {showAll ? "Show Less" : "Show More Specialists"}
+                    {showAll ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
