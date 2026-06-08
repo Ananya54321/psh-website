@@ -50,7 +50,7 @@ export function FacilitiesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {facilities.map((fac, index) => (
             <Card
               key={index}
@@ -80,8 +80,8 @@ export function FacilitiesSection() {
           ))}
 
           {/* Third Card for Many More Laboratory Facilities */}
-          <Card className="overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-slate-50">
-            <CardContent className="px-8 pb-8 pt-4 flex-1 flex flex-col justify-between">
+          <Card className="overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-slate-50 sm:col-span-2 lg:col-span-1">
+            <CardContent className="p-6 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-3 bg-hospital-green/10 rounded-lg text-hospital-green text-2xl">
