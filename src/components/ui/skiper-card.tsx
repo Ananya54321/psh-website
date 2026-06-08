@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
-import Image, { type StaticImageData } from "next/image";
 import {
+  type MotionStyle,
+  type MotionValue,
   motion,
   useMotionTemplate,
   useMotionValue,
-  type MotionStyle,
-  type MotionValue,
 } from "motion/react";
+import Image, { type StaticImageData } from "next/image";
+import { type MouseEvent, useEffect, useState } from "react";
 import Balancer from "react-wrap-balancer";
 
 import { cn } from "@/lib/utils";
@@ -141,85 +141,83 @@ export function SkiperCard({
         />
       </div>
 
-      <>
-        {/* step 1 */}
-        <Image
-          alt={image.alt}
-          className={cn(step1img1Class, {
-            "-translate-x-36 opacity-0 rounded-2xl": step > 0,
-          })}
-          src={image.step1light1}
-          style={{
-            position: "absolute",
-            userSelect: "none",
-            maxWidth: "unset",
-          }}
-        />
-        <Image
-          alt={image.alt}
-          className={cn(step1img2Class, {
-            "-translate-x-24 opacity-0 rounded-2xl": step > 0,
-          })}
-          src={image.step1light2}
-          style={{
-            position: "absolute",
-            userSelect: "none",
-            maxWidth: "unset",
-          }}
-        />
+      {/* step 1 */}
+      <Image
+        alt={image.alt}
+        className={cn(step1img1Class, {
+          "-translate-x-36 opacity-0 rounded-2xl": step > 0,
+        })}
+        src={image.step1light1}
+        style={{
+          position: "absolute",
+          userSelect: "none",
+          maxWidth: "unset",
+        }}
+      />
+      <Image
+        alt={image.alt}
+        className={cn(step1img2Class, {
+          "-translate-x-24 opacity-0 rounded-2xl": step > 0,
+        })}
+        src={image.step1light2}
+        style={{
+          position: "absolute",
+          userSelect: "none",
+          maxWidth: "unset",
+        }}
+      />
 
-        {/* step 2 */}
-        <Image
-          alt={image.alt}
-          className={cn(
-            step2img1Class,
-            "rounded-2xl",
-            { "translate-x-36 opacity-0": step < 1 },
-            { "-translate-x-36 opacity-0": step > 1 },
-          )}
-          src={image.step2light1}
-          style={{
-            position: "absolute",
-            userSelect: "none",
-            maxWidth: "unset",
-          }}
-        />
-        <Image
-          alt={image.alt}
-          className={cn(
-            step2img2Class,
-            "rounded-2xl ",
-            { "translate-x-24 opacity-0": step < 1 },
-            { "-translate-x-24 opacity-0": step > 1 },
-          )}
-          src={image.step2light2}
-          style={{
-            position: "absolute",
-            userSelect: "none",
-            maxWidth: "unset",
-          }}
-        />
-        {/* step 3 */}
-        <Image
-          alt={image.alt}
-          className={cn(
-            step3imgClass,
-            "rounded-2xl",
-            { "translate-x-36 opacity-0": step < 2 },
-            { "-translate-x-36 opacity-0": step > 2 },
-            { "opacity-90": step === 2 },
-          )}
-          src={image.step3light}
-          style={{
-            position: "absolute",
-            userSelect: "none",
-            maxWidth: "unset",
-          }}
-        />
-        <div className="absolute left-48 top-5 z-50 size-full cursor-pointer md:left-0">
-          <Steps current={step} onChange={() => {}} steps={steps} />
-        </div>
-      </>
+      {/* step 2 */}
+      <Image
+        alt={image.alt}
+        className={cn(
+          step2img1Class,
+          "rounded-2xl",
+          { "translate-x-36 opacity-0": step < 1 },
+          { "-translate-x-36 opacity-0": step > 1 },
+        )}
+        src={image.step2light1}
+        style={{
+          position: "absolute",
+          userSelect: "none",
+          maxWidth: "unset",
+        }}
+      />
+      <Image
+        alt={image.alt}
+        className={cn(
+          step2img2Class,
+          "rounded-2xl ",
+          { "translate-x-24 opacity-0": step < 1 },
+          { "-translate-x-24 opacity-0": step > 1 },
+        )}
+        src={image.step2light2}
+        style={{
+          position: "absolute",
+          userSelect: "none",
+          maxWidth: "unset",
+        }}
+      />
+      {/* step 3 */}
+      <Image
+        alt={image.alt}
+        className={cn(
+          step3imgClass,
+          "rounded-2xl",
+          { "translate-x-36 opacity-0": step < 2 },
+          { "-translate-x-36 opacity-0": step > 2 },
+          { "opacity-90": step === 2 },
+        )}
+        src={image.step3light}
+        style={{
+          position: "absolute",
+          userSelect: "none",
+          maxWidth: "unset",
+        }}
+      />
+      <div className="absolute left-48 top-5 z-50 size-full cursor-pointer md:left-0">
+        <Steps current={step} onChange={() => {}} steps={steps} />
+      </div>
 
       <div
         className="absolute right-0 top-0 z-50 size-full cursor-pointer md:left-0"
@@ -252,10 +250,7 @@ interface StepsProps {
 export function Steps({ steps, current, onChange }: StepsProps) {
   return (
     <nav aria-label="Progress" className="flex justify-center px-4 ">
-      <ol
-        className="flex w-full flex-wrap items-start justify-start gap-2  sm:justify-center md:w-10/12 md:divide-y-0"
-        role="list"
-      >
+      <ol className="flex w-full flex-wrap items-start justify-start gap-2  sm:justify-center md:w-10/12 md:divide-y-0">
         {steps.map((step, stepIdx) => {
           const isCompleted = current > stepIdx;
           const isCurrent = current === stepIdx;
@@ -321,7 +316,7 @@ export function Steps({ steps, current, onChange }: StepsProps) {
 
 function useNumberCycler() {
   const [currentNumber, setCurrentNumber] = useState(0);
-  const [dummy, setDummy] = useState(0);
+  const [_dummy, setDummy] = useState(0);
 
   const increment = () => {
     setCurrentNumber((prevNumber) => {
@@ -341,7 +336,7 @@ function useNumberCycler() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [dummy]);
+  }, []);
 
   return {
     increment,

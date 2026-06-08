@@ -1,8 +1,8 @@
 "use client";
 
+import { FaMicroscope } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { FaMicroscope } from "react-icons/fa";
 
 export function FacilitiesSection() {
   const facilities = [

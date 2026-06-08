@@ -20,15 +20,20 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="flex flex-col justify-center">
-            <span className="text-2xl font-bold tracking-tight">Pavan Sai Hospitals</span>
+            <span className="text-2xl font-bold tracking-tight">
+              Pavan Sai Hospitals
+            </span>
             <p className="opacity-90 leading-relaxed text-sm sm:text-base">
-              With a mission, through our vision...changing lives since 2008. We are committed to your well-being.
+              With a mission, through our vision...changing lives since 2008. We
+              are committed to your well-being.
             </p>
           </div>
 
           {/* Location Column */}
           <div className="flex flex-col justify-center">
-            <h4 className="text-lg font-bold mb-5 tracking-wide uppercase text-white/90">Location</h4>
+            <h4 className="text-lg font-bold mb-5 tracking-wide uppercase text-white/90">
+              Location
+            </h4>
             <div className="space-y-1 opacity-90 text-sm sm:text-base">
               <p>R. No: 3, Rocktown Colony,</p>
               <p>Nagole - LB Nagar Main Road,</p>
@@ -38,7 +43,9 @@ export function Footer() {
 
           {/* Emergency Contact Column */}
           <div className="flex flex-col justify-center">
-            <h4 className="text-lg font-bold mb-5 tracking-wide uppercase text-white/90">Emergency Contact</h4>
+            <h4 className="text-lg font-bold mb-5 tracking-wide uppercase text-white/90">
+              Emergency Contact
+            </h4>
             <p className="opacity-90 mb-3 text-sm font-medium tracking-wide">
               24 X 7 EMERGENCY, I.C.U, TRAUMA CARE
             </p>
@@ -55,7 +62,8 @@ export function Footer() {
 
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="opacity-80 text-sm">
-            © {new Date().getFullYear()} Pavan Sai Hospitals. All rights reserved.
+            © {new Date().getFullYear()} Pavan Sai Hospitals. All rights
+            reserved.
           </p>
           <p className="opacity-80 text-sm font-medium tracking-wide">
             Changing lives since 2008

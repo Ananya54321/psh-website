@@ -1,15 +1,12 @@
 import {
+  DoctorsSection,
+  FAQSection,
+  FacilitiesSection,
+  Footer,
   Header,
   HeroSection,
-  FacilitiesSection,
   ServicesSection,
-  StatsSection,
-  DoctorsSection,
   TestimonialsSection,
-  AboutSection,
-  FAQSection,
-  ContactSection,
-  Footer,
 } from "@/components/pages";
 
 export default function Home() {

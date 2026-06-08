@@ -234,10 +234,11 @@ export function DoctorsSection() {
                       <motion.div
                         key={`${doc.name}-${doc.specialty}`}
                         variants={itemVariants}
-                        className={`group p-2.5 px-3.5 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default ${isHiddenOnMobile && !showAll
-                          ? "hidden lg:flex"
-                          : "flex"
-                          }`}
+                        className={`group p-2.5 px-3.5 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default ${
+                          isHiddenOnMobile && !showAll
+                            ? "hidden lg:flex"
+                            : "flex"
+                        }`}
                       >
                         <div className="flex-shrink-0 p-2 rounded-xl bg-white group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50">
                           <Icon className="w-4 h-4" />
