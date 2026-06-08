@@ -1,32 +1,21 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  FlipCard,
-  FlipCardFront,
-  FlipCardBack,
-} from "@/components/ui/flip-card";
-import { toast } from "sonner";
-import { ArrowRight, Calendar, Phone, MapPin } from "lucide-react";
 import {
   FaBone,
   FaBrain,
+  FaEye,
+  FaRunning,
   FaStethoscope,
   FaSyringe,
-  FaEye,
-  FaBaby,
   FaUserMd,
-  FaHeartbeat,
-  FaRunning,
 } from "react-icons/fa";
+import { GiLungs } from "react-icons/gi";
+import { Badge } from "@/components/ui/badge";
 import {
-  GiKneeCap,
-  GiLungs,
-  GiMedicines,
-  GiHealthNormal,
-} from "react-icons/gi";
-import { MdLocalHospital, MdPregnantWoman, MdHealing } from "react-icons/md";
+  FlipCard,
+  FlipCardBack,
+  FlipCardFront,
+} from "@/components/ui/flip-card";
 
 export function ServicesSection() {
   const services = [

@@ -1,41 +1,80 @@
 "use client";
 
 import { Marquee } from "@/components/ui/marquee";
-import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+function getInitials(name: string) {
+  const cleanName = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Dr)\s+/i, "");
+  const parts = cleanName.trim().split(/\s+/);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+  return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+}
+
+function getInitialsColor(name: string) {
+  const colors = [
+    {
+      bg: "bg-slate-50",
+      text: "text-slate-500",
+      border: "border-slate-200/50",
+    },
+    {
+      bg: "bg-sky-50/70",
+      text: "text-sky-600/80",
+      border: "border-sky-100/50",
+    },
+    {
+      bg: "bg-emerald-50/70",
+      text: "text-emerald-600/80",
+      border: "border-emerald-100/50",
+    },
+    {
+      bg: "bg-stone-50",
+      text: "text-stone-500",
+      border: "border-stone-200/50",
+    },
+    {
+      bg: "bg-indigo-50/70",
+      text: "text-indigo-600/80",
+      border: "border-indigo-100/50",
+    },
+  ];
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colors.length;
+  return colors[index];
+}
 
 interface TestimonialCardProps {
   quote: string;
   name: string;
   designation: string;
-  src: string;
+  src?: string;
 }
 
-function TestimonialCard({
-  quote,
-  name,
-  designation,
-  src,
-}: TestimonialCardProps) {
+function TestimonialCard({ quote, name, designation }: TestimonialCardProps) {
+  const colorScheme = getInitialsColor(name);
   return (
-    <div className="mx-2 sm:mx-4 w-72 sm:w-80 shrink-0 rounded-lg bg-white p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+    <div className="mx-2 sm:mx-4 w-72 sm:w-80 shrink-0 self-start rounded-lg bg-white p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
       <div className="mb-4">
-        <div className="flex mb-3">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-          ))}
-        </div>
         <p className="text-gray-600 text-sm leading-relaxed italic">
           "{quote}"
         </p>
       </div>
 
       <div className="flex items-center gap-3">
-        <img
-          src={src}
-          alt={name}
-          className="w-12 h-12 rounded-full object-cover border-2 border-hospital-blue/20"
-        />
+        <div
+          className={cn(
+            "w-12 h-12 rounded-full flex items-center justify-center font-bold text-base border-2 shadow-inner select-none shrink-0",
+            colorScheme.bg,
+            colorScheme.text,
+            colorScheme.border,
+          )}
+        >
+          {getInitials(name)}
+        </div>
         <div>
           <h4 className="font-semibold text-hospital-green">{name}</h4>
           <p className="text-xs text-gray-500">{designation}</p>
@@ -122,15 +161,15 @@ export function TestimonialsSection() {
         <div className="relative">
           {/* First row - left to right */}
           <Marquee pauseOnHover className="[--duration:60s] mb-6">
-            {testimonials.slice(0, 4).map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
+            {testimonials.slice(0, 4).map((testimonial) => (
+              <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
           </Marquee>
 
           {/* Second row - right to left */}
           <Marquee reverse pauseOnHover className="[--duration:80s]">
-            {testimonials.slice(4, 8).map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
+            {testimonials.slice(4, 8).map((testimonial) => (
+              <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
           </Marquee>
 

@@ -1,12 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { Header, Footer } from "@/components/pages";
+import { FaArrowLeft, FaSearch, FaShieldAlt } from "react-icons/fa";
+import { Footer, Header } from "@/components/pages";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { FaShieldAlt, FaSearch, FaArrowLeft } from "react-icons/fa";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function InsurancePage() {
   const [searchQuery, setSearchQuery] = useState("");
