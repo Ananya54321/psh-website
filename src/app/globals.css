@@ -400,3 +400,14 @@ html {
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration, 40s) linear infinite;
 }
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+html, body {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+

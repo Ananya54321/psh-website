@@ -57,7 +57,7 @@ export default function InsurancePage() {
         <Header />
 
         {/* Insurance Page Hero Section */}
-        <section className="bg-hospital-blue text-white py-10 md:py-16 px-4 sm:px-6 relative overflow-hidden">
+        <section className="bg-hospital-blue text-white pt-24 pb-10 md:pt-32 md:pb-16 px-4 sm:px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="max-w-7xl mx-auto relative z-10">
             <Link
