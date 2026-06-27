@@ -23,42 +23,47 @@ export function DoctorsSection() {
   const otherDoctors = [
     {
       name: "Dr. Aleti Srinivas",
-      specialty: "Senior Consultant",
+      specialty: "MS ORTHO ( Gandhi )",
       icon: Stethoscope,
     },
     {
       name: "Dr. Sushanth",
-      specialty: "DNB Ortho",
+      specialty: "DNB ORTHO (Kamineni)",
       icon: Activity,
     },
     {
       name: "Dr. Shashidhar",
-      specialty: "Emergency & ICU",
+      specialty: "MD Anasthesia ( Gandhi )",
       icon: HeartPulse,
     },
     {
+      name: "Dr. Srikanth",
+      specialty: "DM NEURO ( NIMS )",
+      icon: Brain,
+    },
+    {
       name: "Dr. Ujwal Kumar",
-      specialty: "General",
+      specialty: "MD General",
       icon: User,
     },
     {
       name: "Dr. Rajkiran",
-      specialty: "Plastic",
+      specialty: "MCH ( Plastic surgery)",
       icon: Sparkles,
     },
     {
       name: "Dr. Pruthvi",
-      specialty: "Cardio",
+      specialty: "DM Cardiology",
       icon: Heart,
     },
     {
       name: "Dr. Srikanth",
-      specialty: "Neurosurgeon",
+      specialty: "MCH Neurosurgery",
       icon: Brain,
     },
     {
       name: "Dr. Ramakrishna",
-      specialty: "Radiology",
+      specialty: "MD Radiology",
       icon: Activity,
     },
   ];
@@ -165,7 +170,7 @@ export function DoctorsSection() {
                     Dr. Aleti Srinivas
                   </h3>
                   <p className="text-sm font-semibold text-hospital-green mb-2">
-                    Senior Consultant & Chief Surgeon
+                    MS ORTHO ( Gandhi )
                   </p>
                 </div>
               </div>
