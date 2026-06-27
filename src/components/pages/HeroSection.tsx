@@ -77,7 +77,7 @@ export function HeroSection() {
           >
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button className="bg-hospital-blue hover:bg-hospital-blue/90 text-white px-8 py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-hospital-blue/20 hover:shadow-xl hover:shadow-hospital-blue/30 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer font-semibold inline-flex items-center gap-2 justify-center w-full sm:w-auto">
+                <Button className="bg-hospital-blue hover:bg-hospital-blue/90 text-white px-12 py-6 text-base sm:text-lg rounded-full shadow-lg shadow-hospital-blue/20 hover:shadow-xl hover:shadow-hospital-blue/30 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer font-semibold inline-flex items-center gap-2 justify-center w-full sm:w-auto">
                   <Calendar className="h-5 w-5" />
                   Book Appointment
                 </Button>
@@ -136,7 +136,7 @@ export function HeroSection() {
                   </div>
                 </AlertDialogHeader>
                 <AlertDialogFooter className="mt-6">
-                  <AlertDialogCancel className="bg-hospital-blue hover:bg-hospital-blue/90 text-white hover:text-white border-0 w-full rounded-xl py-3 font-semibold cursor-pointer">
+                  <AlertDialogCancel className="bg-hospital-blue hover:bg-hospital-blue/90 text-white hover:text-white border-0 w-full rounded-full py-3 font-semibold cursor-pointer">
                     Close
                   </AlertDialogCancel>
                 </AlertDialogFooter>
@@ -144,7 +144,7 @@ export function HeroSection() {
             </AlertDialog>
 
             <Link href="/insurance" passHref className="w-full sm:w-auto">
-              <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-xs px-8 py-6 text-base sm:text-lg rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer font-semibold inline-flex items-center gap-2 justify-center w-full">
+              <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-xs px-8 py-6 text-base sm:text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer font-semibold inline-flex items-center gap-2 justify-center w-full">
                 <ShieldCheck className="h-5 w-5 text-hospital-green" />
                 View Accepted Insurances
               </Button>
@@ -160,7 +160,7 @@ export function HeroSection() {
           >
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white leading-none drop-shadow-sm">
-                15+
+                18+
               </div>
               <div className="text-[10px] sm:text-xs font-bold text-white mt-2 uppercase tracking-wider drop-shadow-xs">
                 Years Excellence

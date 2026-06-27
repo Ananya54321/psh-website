@@ -77,7 +77,7 @@ export function Header() {
         <div className="hidden md:block justify-self-end">
           <a
             href="tel:8801719855"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-hospital-orange hover:bg-orange-600 px-4 text-sm font-bold text-white transition-colors cursor-pointer shadow-md gap-1.5"
+            className="inline-flex h-10 items-center justify-center rounded-full bg-hospital-orange hover:bg-orange-600 px-4 text-sm font-bold text-white transition-colors cursor-pointer shadow-md gap-1.5"
           >
             <span>📞</span>
             <span>8801719855</span>

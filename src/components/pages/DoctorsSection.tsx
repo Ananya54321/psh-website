@@ -22,11 +22,6 @@ export function DoctorsSection() {
   const [showAll, setShowAll] = useState(false);
   const otherDoctors = [
     {
-      name: "Dr. Aleti Srinivas",
-      specialty: "MS ORTHO ( Gandhi )",
-      icon: Stethoscope,
-    },
-    {
       name: "Dr. Sushanth",
       specialty: "DNB ORTHO (Kamineni)",
       icon: Activity,
@@ -141,64 +136,87 @@ export function DoctorsSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex flex-col h-full"
           >
-            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 flex flex-col justify-between h-full relative overflow-hidden group hover:shadow-2xl hover:border-hospital-blue/10 transition-all duration-300">
+            <div className="bg-gradient-to-br from-white via-white to-hospital-blue/5 border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 lg:p-5 xl:p-6 flex flex-col justify-between h-full relative overflow-hidden group hover:shadow-2xl hover:border-hospital-blue/15 transition-all duration-300">
               {/* Glowing backdrop shape */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-hospital-blue/5 rounded-full blur-2xl pointer-events-none group-hover:bg-hospital-blue/10 transition-all duration-300" />
 
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-hospital-blue/10 text-hospital-blue">
-                    <Award className="w-3.5 h-3.5" />
-                    Chief Medical Consultant
-                  </span>
-                </div>
+              <div className="flex flex-col md:flex-row lg:flex-col gap-5 lg:gap-4 xl:gap-6 items-center md:items-stretch lg:items-center h-full relative z-10 w-full">
+                {/* Left/Top: Image and Badge */}
+                <div className="flex flex-col items-center justify-center flex-shrink-0">
+                  <div className="mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-hospital-blue/10 text-hospital-blue border border-hospital-blue/20">
+                      <Award className="w-3.5 h-3.5" />
+                      Chief Medical Consultant
+                    </span>
+                  </div>
 
-                <div className="w-full flex justify-center mb-4">
-                  <div className="rounded-2xl overflow-hidden border-2 border-hospital-blue/10 shadow-lg group-hover:border-hospital-blue/30 transition-all duration-300">
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-hospital-blue/10 shadow-lg group-hover:border-hospital-blue/30 transition-all duration-300 bg-slate-50">
                     <Image
                       src="/images/dr_srinivas.png"
                       alt="Dr. Aleti Srinivas"
-                      width={400} // use image's natural width
-                      height={500} // use image's natural height
-                      className="h-auto w-auto max-w-[180px] sm:max-w-[200px] object-contain"
+                      width={400}
+                      height={500}
+                      className="h-auto w-auto max-w-[180px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[160px] xl:max-w-[180px] object-contain transition-transform duration-500 "
                     />
                   </div>
                 </div>
 
-                <div className="text-center md:text-left">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Dr. Aleti Srinivas
-                  </h3>
-                  <p className="text-sm font-semibold text-hospital-green mb-2">
-                    MS ORTHO ( Gandhi )
-                  </p>
-                </div>
-              </div>
+                {/* Right/Bottom: Content Details */}
+                <div className="flex-1 flex flex-col justify-between text-center md:text-left lg:text-center mt-2 md:mt-0 lg:mt-2">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl lg:text-2xl font-extrabold text-gray-900 mb-1 tracking-tight">
+                      Dr. Aleti Srinivas Goud
+                    </h3>
+                    <p className="text-sm font-semibold text-hospital-green mb-2 lg:mb-1.5">
+                      MS ORTHO ( Gandhi )
+                    </p>
+                    <p className="text-xs text-gray-600 leading-relaxed mb-3">
+                      Specializes in advanced joint replacement, spine care, and
+                      complex trauma treatments.
+                    </p>
 
-              {/* Experience highlights */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100 mt-auto">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-hospital-blue/5 text-hospital-blue">
-                    <Clock className="w-4 h-4" />
+                    {/* Core Expertise Tags */}
+                    <div className="flex flex-wrap justify-center md:justify-start lg:justify-center gap-1.5 mb-4">
+                      <span className="px-2.5 py-1 bg-slate-50 text-slate-700 rounded-lg text-[10px] font-bold uppercase tracking-wider border border-slate-100">
+                        Joint Replacement
+                      </span>
+                      <span className="px-2.5 py-1 bg-slate-50 text-slate-700 rounded-lg text-[10px] font-bold uppercase tracking-wider border border-slate-100">
+                        Spine Surgery
+                      </span>
+                      <span className="px-2.5 py-1 bg-slate-50 text-slate-700 rounded-lg text-[10px] font-bold uppercase tracking-wider border border-slate-100">
+                        Complex Trauma
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                      Experience
-                    </p>
-                    <p className="text-sm font-bold text-gray-800">20+ Years</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-hospital-green/5 text-hospital-green">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                      Quality
-                    </p>
-                    <p className="text-sm font-bold text-gray-800">
-                      Direct Care
-                    </p>
+
+                  {/* Experience highlights */}
+                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-gray-100 mt-auto w-full">
+                    <div className="flex items-center gap-3 bg-slate-50/50 p-2.5 rounded-xl border border-slate-100 hover:bg-white hover:border-hospital-blue/10 transition-all duration-300 justify-center md:justify-start lg:justify-center">
+                      <div className="p-2 rounded-lg bg-hospital-blue/10 text-hospital-blue">
+                        <Clock className="w-4 h-4" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                          Experience
+                        </p>
+                        <p className="text-sm font-extrabold text-gray-800">
+                          23 Years
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-slate-50/50 p-2.5 rounded-xl border border-slate-100 hover:bg-white hover:border-hospital-green/10 transition-all duration-300 justify-center md:justify-start lg:justify-center">
+                      <div className="p-2 rounded-lg bg-hospital-green/10 text-hospital-green">
+                        <ShieldCheck className="w-4 h-4" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                          Specialist
+                        </p>
+                        <p className="text-sm font-extrabold text-gray-800">
+                          15 Years
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -213,59 +231,60 @@ export function DoctorsSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 flex flex-col h-full"
           >
-            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 flex flex-col h-full justify-between">
-              <div>
-                <div className="mb-4 pb-3 border-b border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+            <div className="bg-white border border-gray-100 shadow-xl shadow-slate-100/50 rounded-3xl p-5 md:p-6 lg:p-5 xl:p-6 flex flex-col h-full justify-between">
+              <div className="flex flex-col h-full justify-between w-full">
+                <div className="pb-6 py-3 border-b border-gray-100">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">
                     Our Specialized Medical Team
                   </h3>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-sm text-gray-500">
                     A network of leading specialists collaborating to deliver
                     comprehensive care.
                   </p>
                 </div>
 
-                <motion.div
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
-                >
-                  {otherDoctors.map((doc, idx) => {
-                    const Icon = doc.icon;
-                    const isHiddenOnMobile = idx >= 4;
-                    return (
-                      <motion.div
-                        key={`${doc.name}-${doc.specialty}`}
-                        variants={itemVariants}
-                        className={`group p-2.5 px-3.5 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default ${
-                          isHiddenOnMobile && !showAll
+                <div className="flex-1 flex flex-col justify-center py-4 lg:py-2">
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 xl:gap-5"
+                  >
+                    {otherDoctors.map((doc, idx) => {
+                      const Icon = doc.icon;
+                      const isHiddenOnMobile = idx >= 4;
+                      return (
+                        <motion.div
+                          key={`${doc.name}-${doc.specialty}`}
+                          variants={itemVariants}
+                          className={`group p-2.5 px-3.5 lg:p-3.5 lg:px-4 bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default ${isHiddenOnMobile && !showAll
                             ? "hidden lg:flex"
                             : "flex"
-                        }`}
-                      >
-                        <div className="flex-shrink-0 p-2 rounded-xl bg-white group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50">
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-gray-800 text-sm group-hover:text-hospital-blue transition-colors duration-300 truncate">
-                            {doc.name}
-                          </h4>
-                          <p className="text-xs text-gray-500 font-semibold group-hover:text-hospital-green transition-colors duration-300 truncate">
-                            {doc.specialty}
-                          </p>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
+                            }`}
+                        >
+                          <div className="flex-shrink-0 p-2 rounded-xl bg-white group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-gray-800 text-sm group-hover:text-hospital-blue transition-colors duration-300 truncate">
+                              {doc.name}
+                            </h4>
+                            <p className="text-xs text-gray-500 font-semibold group-hover:text-hospital-green transition-colors duration-300 truncate">
+                              {doc.specialty}
+                            </p>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                </div>
 
                 <div className="mt-4 text-center lg:hidden">
                   <button
                     type="button"
                     onClick={() => setShowAll(!showAll)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold border border-hospital-blue text-hospital-blue hover:bg-hospital-blue hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-hospital-blue text-hospital-blue hover:bg-hospital-blue hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
                   >
                     {showAll ? "Show Less" : "Show More Specialists"}
                     {showAll ? (
