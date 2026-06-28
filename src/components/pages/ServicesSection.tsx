@@ -167,7 +167,7 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <FlipCard key={index} className="h-80">
-              <FlipCardFront className="bg-white border border-gray-200 shadow-lg">
+              <FlipCardFront className="bg-white border border-gray-200 ">
                 <div className="relative h-full">
                   <div className="h-48 overflow-hidden">
                     <img

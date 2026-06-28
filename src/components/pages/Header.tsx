@@ -3,159 +3,212 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useScroll, useMotionValueEvent, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+  Navbar,
+  NavBody,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
 
 export function Header() {
+  const navItems = [
+    {
+      name: "Services",
+      link: "/#services",
+    },
+    {
+      name: "Doctors",
+      link: "/#doctors",
+    },
+    {
+      name: "Insurances",
+      link: "/insurance",
+    },
+  ];
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 100);
+  });
 
   return (
-    <header className="bg-hospital-blue text-white py-3 px-4 sm:px-6 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between md:grid md:grid-cols-3 items-center">
+    <Navbar className="fixed top-0 z-50">
+      {/* Desktop Navigation */}
+      <NavBody className={cn(
+        "transition-colors duration-300",
+        isScrolled 
+          ? "border border-slate-200/50 bg-white/90 text-neutral-800 shadow-md backdrop-blur-md" 
+          : "bg-transparent text-white"
+      )}>
+        {/* Brand Logo & Name */}
         <Link
           href="/"
-          className="flex items-center space-x-2 sm:space-x-4 cursor-pointer hover:opacity-90 transition-opacity justify-self-start"
+          className="flex items-center space-x-3 cursor-pointer hover:opacity-90 transition-opacity z-50"
         >
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100">
             <Image
               src="/images/psh_logo.jpeg"
               alt="Pavan Sai Hospitals"
-              width={48}
-              height={48}
-              className="rounded-full p-1.5 sm:p-2"
+              width={36}
+              height={36}
+              className="rounded-full p-0.5"
             />
           </div>
-          <div>
-            <h1 className="text-lg sm:text-2xl font-bold leading-tight">
+          <div className="flex flex-col text-left">
+            <span className={cn(
+              "text-base font-bold leading-tight transition-colors duration-300",
+              isScrolled ? "text-[#3e8aa1]" : "text-white"
+            )}>
               Pavan Sai Hospitals
-            </h1>
-            <p className="text-[10px] sm:text-sm opacity-90">
+            </span>
+            <span className={cn(
+              "text-[10px] tracking-wide transition-colors duration-300",
+              isScrolled ? "text-neutral-500" : "text-white/80"
+            )}>
               Changing lives since 2008
-            </p>
+            </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation - 2nd Part (Middle links) */}
-        <div className="hidden md:block justify-self-center">
-          <NavigationMenu>
-            <NavigationMenuList className="flex gap-2">
-              <NavigationMenuItem>
-                <Link href="/#services" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
-                    Services
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/#doctors" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
-                    Doctors
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/insurance" passHref legacyBehavior>
-                  <NavigationMenuLink className="relative group/navlink inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-semibold tracking-wide transition-colors cursor-pointer text-white hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white">
-                    Insurances
-                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-current transition-all duration-300 group-hover/navlink:w-full"></span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        {/* Navigation Items (Desktop) */}
+        <div
+          onMouseLeave={() => setHoveredIndex(null)}
+          className="relative hidden lg:flex items-center justify-center space-x-2 text-sm font-semibold"
+        >
+          {navItems.map((item, idx) => (
+            <Link
+              key={idx}
+              href={item.link}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              className={cn(
+                "relative px-4 py-2 rounded-full transition-colors duration-300 z-10",
+                isScrolled
+                  ? "text-neutral-600 hover:text-[#3e8aa1]"
+                  : "text-white/90 hover:text-white"
+              )}
+            >
+              {hoveredIndex === idx && (
+                <motion.span
+                  layoutId="desktopNavHover"
+                  className={cn(
+                    "absolute inset-0 -z-10 rounded-full shadow-sm",
+                    isScrolled ? "bg-slate-100" : "bg-white/10"
+                  )}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span>{item.name}</span>
+            </Link>
+          ))}
         </div>
 
-        {/* Desktop Contact - 3rd Part */}
-        <div className="hidden md:block justify-self-end">
+        {/* Call to Action Button */}
+        <div className="hidden lg:block z-50">
           <a
             href="tel:8801719855"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-hospital-orange hover:bg-orange-600 px-4 text-sm font-bold text-white transition-colors cursor-pointer shadow-md gap-1.5"
+            className={cn(
+              "inline-flex h-9 items-center justify-center rounded-full px-4 text-xs font-bold text-white transition-all duration-300 shadow-md gap-1.5 hover:scale-105 cursor-pointer",
+              isScrolled 
+                ? "bg-hospital-blue hover:bg-[#2c6b7a] shadow-hospital-blue/10" 
+                : "bg-hospital-orange hover:bg-orange-600 shadow-black/10"
+            )}
           >
             <span>📞</span>
             <span>8801719855</span>
           </a>
         </div>
+      </NavBody>
 
-        {/* Mobile Navigation */}
-        <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white">
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <title>Menu</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-white p-6">
-              <div className="flex flex-col space-y-4 mt-8">
-                <Link
-                  href="/"
-                  className="text-lg font-medium hover:text-hospital-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/#services"
-                  className="text-lg font-medium hover:text-hospital-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Services
-                </Link>
-                <Link
-                  href="/#doctors"
-                  className="text-lg font-medium hover:text-hospital-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Doctors
-                </Link>
-                <Link
-                  href="/insurance"
-                  className="text-lg font-medium hover:text-hospital-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Insurances
-                </Link>
-                <a
-                  href="tel:8801719855"
-                  className="text-lg font-semibold text-hospital-orange hover:text-hospital-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  📞 8801719855
-                </a>
-                <a
-                  href="tel:8801719855"
-                  className="mt-4"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Button className="bg-hospital-green hover:bg-green-700 w-full cursor-pointer">
-                    Book Appointment
-                  </Button>
-                </a>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </header>
+      {/* Mobile Navigation */}
+      <MobileNav className={cn(
+        "transition-colors duration-300 px-4",
+        isScrolled 
+          ? "border border-slate-200/50 bg-white/90 shadow-md backdrop-blur-md" 
+          : "bg-transparent"
+      )}>
+        <MobileNavHeader className="h-14">
+          {/* Brand Logo & Name */}
+          <Link
+            href="/"
+            className="flex items-center space-x-3 cursor-pointer hover:opacity-90 transition-opacity"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100">
+              <Image
+                src="/images/psh_logo.jpeg"
+                alt="Pavan Sai Hospitals"
+                width={32}
+                height={32}
+                className="rounded-full p-0.5"
+              />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className={cn(
+                "text-sm font-bold leading-tight transition-colors duration-300",
+                isScrolled ? "text-[#3e8aa1]" : "text-white"
+              )}>
+                Pavan Sai Hospitals
+              </span>
+              <span className={cn(
+                "text-[9px] tracking-wide transition-colors duration-300",
+                isScrolled ? "text-neutral-500" : "text-white/80"
+              )}>
+                Changing lives since 2008
+              </span>
+            </div>
+          </Link>
+
+          {/* Toggle Menu Button */}
+          <div className="flex items-center">
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={cn(
+                "transition-colors duration-300 cursor-pointer p-1 rounded-md",
+                isScrolled ? "text-neutral-800" : "text-white"
+              )}
+            />
+          </div>
+        </MobileNavHeader>
+
+        {/* Mobile Dropdown Menu */}
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+          className="bg-white/95 border border-slate-200/60 shadow-lg backdrop-blur-md rounded-2xl p-5 mt-3 flex flex-col space-y-4"
+        >
+          {navItems.map((item, idx) => (
+            <Link
+              key={`mobile-item-${idx}`}
+              href={item.link}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-sm font-semibold text-neutral-700 hover:text-hospital-blue transition-colors py-2.5 border-b border-slate-100 last:border-b-0 w-full block"
+            >
+              {item.name}
+            </Link>
+          ))}
+          
+          <div className="flex flex-col gap-2.5 pt-3 w-full">
+            <a
+              href="tel:8801719855"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center h-10 w-full rounded-full bg-hospital-orange hover:bg-orange-600 text-white text-xs font-bold transition-all shadow-md gap-1.5"
+            >
+              <span>📞</span>
+              <span>8801719855</span>
+            </a>
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
   );
 }
+

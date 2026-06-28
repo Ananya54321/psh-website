@@ -54,13 +54,13 @@ export function FacilitiesSection() {
           {facilities.map((fac, index) => (
             <Card
               key={index}
-              className="overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-white"
+              className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default"
             >
-              <div className="relative h-64 w-full bg-gray-50 flex items-center justify-center">
+              <div className="relative h-64 w-full bg-gray-50 flex items-center justify-center overflow-hidden">
                 <img
                   src={fac.image}
                   alt={fac.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <Badge className="absolute top-4 left-4 bg-hospital-blue text-white hover:bg-hospital-blue">
                   {fac.badge}
@@ -68,7 +68,7 @@ export function FacilitiesSection() {
               </div>
               <CardContent className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-semibold hospital-green mb-3">
+                  <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-hospital-blue transition-colors duration-300 mb-3">
                     {fac.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -80,19 +80,19 @@ export function FacilitiesSection() {
           ))}
 
           {/* Third Card for Many More Laboratory Facilities */}
-          <Card className="overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-slate-50 sm:col-span-2 lg:col-span-1">
+          <Card className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default sm:col-span-2 lg:col-span-1">
             <CardContent className="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-3 bg-hospital-green/10 rounded-lg text-hospital-green text-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 bg-hospital-green/10 group-hover:bg-hospital-blue/10 rounded-lg text-hospital-green group-hover:text-hospital-blue text-2xl transition-all duration-300">
                     <FaMicroscope />
                   </div>
-                  <h3 className="text-2xl font-semibold hospital-green mt-0">
+                  <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-hospital-blue transition-colors duration-300 mt-0">
                     Laboratory Facilities
                   </h3>
                 </div>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   Beyond our advanced imaging services, our hospital is equipped
                   with comprehensive testing and diagnostic labs operating 24/7.
                 </p>
@@ -101,7 +101,7 @@ export function FacilitiesSection() {
                   {additionalFacilities.map((facility, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 text-xs text-gray-700 bg-white p-2.5 rounded border border-gray-100 shadow-sm"
+                      className="flex items-center gap-2 text-xs text-gray-700 bg-white group-hover:bg-slate-50/50 p-2.5 rounded-xl border border-gray-100/50 group-hover:border-hospital-blue/10 shadow-sm transition-all duration-300"
                     >
                       <div className="w-1.5 h-1.5 bg-hospital-orange rounded-full flex-shrink-0"></div>
                       <span>{facility}</span>

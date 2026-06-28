@@ -57,27 +57,32 @@ interface TestimonialCardProps {
 function TestimonialCard({ quote, name, designation }: TestimonialCardProps) {
   const colorScheme = getInitialsColor(name);
   return (
-    <div className="mx-2 sm:mx-4 w-72 sm:w-80 shrink-0 self-start rounded-lg bg-white p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-      <div className="mb-4">
-        <p className="text-gray-600 text-sm leading-relaxed italic">
+    <div className="group mx-1 sm:mx-2 w-64 sm:w-72 shrink-0 self-start bg-slate-50/50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl p-4 sm:p-5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default">
+      <div className="mb-3">
+        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed italic">
           "{quote}"
         </p>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
         <div
           className={cn(
-            "w-12 h-12 rounded-full flex items-center justify-center font-bold text-base border-2 shadow-inner select-none shrink-0",
+            "w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm border-2 shadow-inner select-none shrink-0 transition-all duration-300",
             colorScheme.bg,
             colorScheme.text,
             colorScheme.border,
+            "group-hover:bg-hospital-blue/10 group-hover:text-hospital-blue group-hover:border-hospital-blue/20 group-hover:shadow-none"
           )}
         >
           {getInitials(name)}
         </div>
-        <div>
-          <h4 className="font-semibold text-hospital-green">{name}</h4>
-          <p className="text-xs text-gray-500">{designation}</p>
+        <div className="min-w-0">
+          <h4 className="font-semibold text-gray-800 text-xs sm:text-sm group-hover:text-hospital-blue transition-colors duration-300 truncate">
+            {name}
+          </h4>
+          <p className="text-[10px] sm:text-xs text-gray-500 font-semibold group-hover:text-hospital-green transition-colors duration-300 truncate">
+            {designation}
+          </p>
         </div>
       </div>
     </div>
@@ -160,7 +165,7 @@ export function TestimonialsSection() {
 
         <div className="relative">
           {/* First row - left to right */}
-          <Marquee pauseOnHover className="[--duration:60s] mb-6">
+          <Marquee pauseOnHover className="[--duration:60s] mb-3">
             {testimonials.slice(0, 4).map((testimonial) => (
               <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}
