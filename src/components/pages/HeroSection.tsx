@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Calendar, PhoneCall, ShieldCheck, Sparkles } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   AlertDialog,
@@ -21,14 +20,16 @@ export function HeroSection() {
       id="home"
       className="relative overflow-hidden py-20 sm:py-24 md:py-32 flex items-center min-h-[85vh] text-white"
     >
-      {/* Full Background Image */}
-      <Image
-        src="/images/psh_hero_section.png"
-        alt="Pavan Sai Hospitals background"
-        fill
-        priority
-        className="object-cover z-0"
-      />
+      {/* Full Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/images/hero_anim.mp4" type="video/mp4" />
+      </video>
       {/* Premium subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent z-10" />
 

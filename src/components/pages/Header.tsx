@@ -43,7 +43,7 @@ export function Header() {
     <Navbar className="fixed top-0 z-50">
       {/* Desktop Navigation */}
       <NavBody className={cn(
-        "transition-all duration-300",
+        "transition-colors duration-300",
         isScrolled 
           ? "border border-slate-200/50 bg-white/90 text-neutral-800 shadow-md backdrop-blur-md" 
           : "bg-transparent text-white"
@@ -129,7 +129,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       <MobileNav className={cn(
-        "transition-all duration-300 px-4",
+        "transition-colors duration-300 px-4",
         isScrolled 
           ? "border border-slate-200/50 bg-white/90 shadow-md backdrop-blur-md" 
           : "bg-transparent"
