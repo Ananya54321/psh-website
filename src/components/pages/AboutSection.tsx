@@ -8,8 +8,8 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              <span className="hospital-blue">About</span>{" "}
-              <span className="hospital-green">Pawan Sai Hospitals</span>
+              <span className="hospital-blue">About Pawan Sai</span>{" "}
+              <span className="hospital-green">HOSPITALS</span>
             </h2>
             <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
               With over 15 years of dedicated service to the community, Pawan

@@ -24,7 +24,7 @@ export function ContactSection() {
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Get In</span>{" "}
-            <span className="hospital-green">Touch</span>
+            <span className="hospital-green">TOUCH</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600">
             We're here to help. Contact us for appointments, emergencies, or any

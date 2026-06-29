@@ -1,0 +1,12 @@
+[ x ] in services section the cards are flipping when we hover in desktop. same interaction isnt possible on mobile. so on mobile i want them to flip on each tap. pls fix
+[ x ] fix all the errors in Headers.tsx page. 
+[ x ] now the navbar items arent justify-netween anymore but theyre in the vertical center of the screen. i want them to be at the starting of the parent div with a little bit of padding, say pt-16 rather than be at the center. pls fix
+
+[ x ] i want the bg of the expanded mobile navbar menu to be much more blurred
+[ x ] on desktop version when we scroll down the navbar is shrinking too much, i want it to be a bit longer when its shrunk. pls make its shrunk length longer
+[ x ] change the ui of faq section to look similar to the image attached (keep the information we have rn, dont change info)
+
+1. make the footer better 
+2. make the services section cards better
+3. in faqs turn the + and - icons to look hispital blue or hospital green whichever one you think would suit the best
+4. 
