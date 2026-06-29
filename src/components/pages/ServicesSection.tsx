@@ -166,34 +166,41 @@ export function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <FlipCard key={index} className="h-80">
-              <FlipCardFront className="bg-white border border-gray-200 ">
-                <div className="relative h-full">
-                  <div className="h-48 overflow-hidden">
+            <FlipCard key={index} className="h-[380px]">
+              <FlipCardFront className="bg-white border border-gray-100 shadow-sm">
+                <div className="flex flex-col h-full">
+                  {/* Image */}
+                  <div className="relative h-44 overflow-hidden flex-shrink-0">
                     <img
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-hospital-orange text-white">
-                      {service.category}
-                    </Badge>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="text-2xl bg-white rounded-full p-2 shadow-md text-hospital-blue">
-                      <service.icon />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <Badge className="bg-hospital-orange/90 text-white text-xs shadow-sm">
+                        {service.category}
+                      </Badge>
                     </div>
                   </div>
-                  <div className="p-6 h-48 flex flex-col justify-between">
-                    <div>
-                      <h3 className="hospital-green text-xl font-semibold mb-2 leading-tight">
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-1 px-5 pt-4 pb-4">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="flex-shrink-0 bg-blue-50 text-hospital-blue rounded-xl p-2.5 shadow-sm mt-0.5">
+                        <service.icon className="text-lg" />
+                      </div>
+                      <h3 className="hospital-green text-lg font-semibold leading-snug">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {service.description}
-                      </p>
+                    </div>
+                    <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                      {service.description}
+                    </p>
+                    <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-end">
+                      <span className="text-xs text-gray-400 font-medium tracking-wide">
+                        Hover to see details →
+                      </span>
                     </div>
                   </div>
                 </div>
