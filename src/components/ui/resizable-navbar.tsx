@@ -143,7 +143,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
+        borderRadius: visible ? "22px" : "2rem",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -205,7 +205,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-40 w-screen h-[100dvh] bg-slate-50/30 dark:bg-neutral-950/50 backdrop-blur-[80px] flex flex-col items-center justify-start px-6 pt-32 pb-12 overflow-y-auto"
+          className="fixed inset-0 z-40 w-screen h-[100dvh] bg-slate-50/80 dark:bg-neutral-950/50 backdrop-blur-[80px] flex flex-col items-center justify-start px-6 pt-32 pb-12 overflow-y-auto"
           style={{
             backdropFilter: "blur(80px)",
             WebkitBackdropFilter: "blur(80px)",

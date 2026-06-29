@@ -83,61 +83,96 @@ export function HeroSection() {
                   Book Appointment
                 </Button>
               </AlertDialogTrigger>
-              <AlertDialogContent className="max-w-md rounded-2xl bg-white p-6 shadow-2xl border border-gray-100">
-                <AlertDialogHeader>
-                  <AlertDialogTitle className="text-2xl font-extrabold hospital-blue flex items-center gap-2">
-                    <PhoneCall className="h-6 w-6 text-hospital-blue animate-pulse" />
-                    Contact Us to Book
-                  </AlertDialogTitle>
-                  <div className="text-base text-gray-600 mt-4 space-y-4">
-                    <p>
-                      Please call our reception desk or cell line to schedule
-                      your appointment:
-                    </p>
-
-                    <div className="p-4 bg-slate-50/80 backdrop-blur-xs rounded-xl border border-gray-100 space-y-3 shadow-inner">
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-gray-500 text-sm">
-                          Landline 1:
-                        </span>
-                        <a
-                          href="tel:040-24220599"
-                          className="font-bold text-lg hospital-blue hover:underline tracking-wide"
-                        >
-                          040-24220599
-                        </a>
+              <AlertDialogContent className="max-w-sm sm:max-w-md p-0 gap-0 rounded-2xl overflow-hidden border-0 shadow-2xl">
+                {/* Branded header */}
+                <AlertDialogHeader className="p-0">
+                  <div className="bg-[#2c6b7a] px-6 py-5 text-white">
+                    <div className="flex items-center gap-3.5">
+                      <div className="p-2.5 bg-white/20 rounded-xl flex-shrink-0">
+                        <Calendar className="h-5 w-5 text-white" />
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-gray-500 text-sm">
-                          Landline 2:
-                        </span>
-                        <a
-                          href="tel:040-24221599"
-                          className="font-bold text-lg hospital-blue hover:underline tracking-wide"
-                        >
-                          040-24221599
-                        </a>
-                      </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-gray-200">
-                        <span className="font-semibold text-gray-500 text-sm">
-                          Mobile / Cell:
-                        </span>
-                        <a
-                          href="tel:8801719855"
-                          className="font-bold text-lg hospital-green hover:underline tracking-wide"
-                        >
-                          8801719855
-                        </a>
+                      <div>
+                        <AlertDialogTitle className="text-xl font-extrabold text-white leading-tight">
+                          Book an Appointment
+                        </AlertDialogTitle>
+                        <p className="text-white/70 text-xs font-medium mt-0.5">
+                          Pavan Sai Hospitals
+                        </p>
                       </div>
                     </div>
-
-                    <p className="text-xs text-gray-400 text-center italic">
-                      Our team is available to assist you.
-                    </p>
                   </div>
                 </AlertDialogHeader>
-                <AlertDialogFooter className="mt-6">
-                  <AlertDialogCancel className="bg-hospital-blue hover:bg-hospital-blue/90 text-white hover:text-white border-0 w-full rounded-full py-3 font-semibold cursor-pointer">
+
+                {/* Contact numbers */}
+                <div className="px-6 py-5 bg-white space-y-4">
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    Call our reception to schedule your appointment. We&apos;re
+                    available 24/7 for your care.
+                  </p>
+
+                  <div className="space-y-2.5">
+                    <a
+                      href="tel:04024220599"
+                      className="flex items-center gap-3.5 p-3.5 bg-slate-50 hover:bg-hospital-blue/5 border border-slate-100 hover:border-hospital-blue/20 rounded-xl transition-all duration-200 group"
+                    >
+                      <div className="p-2 bg-hospital-blue/10 group-hover:bg-hospital-blue/15 rounded-lg transition-colors flex-shrink-0">
+                        <PhoneCall className="h-4 w-4 text-hospital-blue" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                          Landline 1
+                        </p>
+                        <p className="font-bold text-gray-800 group-hover:text-hospital-blue transition-colors text-base tracking-wide">
+                          040-24220599
+                        </p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="tel:04024221599"
+                      className="flex items-center gap-3.5 p-3.5 bg-slate-50 hover:bg-hospital-blue/5 border border-slate-100 hover:border-hospital-blue/20 rounded-xl transition-all duration-200 group"
+                    >
+                      <div className="p-2 bg-hospital-blue/10 group-hover:bg-hospital-blue/15 rounded-lg transition-colors flex-shrink-0">
+                        <PhoneCall className="h-4 w-4 text-hospital-blue" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                          Landline 2
+                        </p>
+                        <p className="font-bold text-gray-800 group-hover:text-hospital-blue transition-colors text-base tracking-wide">
+                          040-24221599
+                        </p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="tel:8801719855"
+                      className="flex items-center gap-3.5 p-3.5 bg-hospital-green/5 hover:bg-hospital-green/10 border border-hospital-green/15 hover:border-hospital-green/30 rounded-xl transition-all duration-200 group"
+                    >
+                      <div className="p-2 bg-hospital-green/10 group-hover:bg-hospital-green/20 rounded-lg transition-colors flex-shrink-0">
+                        <PhoneCall className="h-4 w-4 text-hospital-green" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                          Mobile / Cell
+                        </p>
+                        <p className="font-bold text-gray-800 group-hover:text-hospital-green transition-colors text-base tracking-wide">
+                          8801719855
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-2 pt-1">
+                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                    <p className="text-xs text-gray-400 font-medium">
+                      24 × 7 Emergency &amp; ICU Services
+                    </p>
+                  </div>
+                </div>
+
+                <AlertDialogFooter className="px-6 pb-6 pt-0 bg-white">
+                  <AlertDialogCancel className="bg-hospital-blue hover:bg-hospital-blue/90 text-white hover:text-white border-0 w-full rounded-xl py-3 font-semibold cursor-pointer text-sm">
                     Close
                   </AlertDialogCancel>
                 </AlertDialogFooter>

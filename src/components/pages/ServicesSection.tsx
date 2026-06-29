@@ -209,7 +209,7 @@ export function ServicesSection() {
                     </p>
                     <div className="mt-auto pt-2.5 border-t border-gray-100 flex items-center justify-end">
                       <span className="text-xs text-hospital-blue font-medium tracking-wide">
-                        Tap to see details →
+                        See details →
                       </span>
                     </div>
                   </div>
