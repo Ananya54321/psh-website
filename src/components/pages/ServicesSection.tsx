@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/scroll-reveal";
+import {
   FaBone,
   FaBrain,
   FaEye,
@@ -156,7 +161,7 @@ export function ServicesSection() {
       className="py-12 md:py-20 px-4 sm:px-6 bg-gray-50 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
+        <ScrollReveal className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Our Speciality</span>{" "}
             <span className="hospital-green">SERVICES</span>
@@ -166,17 +171,17 @@ export function ServicesSection() {
             state-of-the-art facilities and experienced medical professionals
             dedicated to your well-being.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <FlipCard
+            <StaggerItem
               key={index}
               className={cn(
-                "h-[355px]",
                 index >= 3 && !showAll ? "hidden md:block" : ""
               )}
             >
+            <FlipCard className="h-[355px]">
               <FlipCardFront className="bg-white border border-gray-100 shadow-sm">
                 <div className="flex flex-col h-full">
                   {/* Image */}
@@ -271,8 +276,9 @@ export function ServicesSection() {
                 </div>
               </FlipCardBack>
             </FlipCard>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Mobile-only show more / show less button */}
         <div className="mt-8 flex justify-center md:hidden">

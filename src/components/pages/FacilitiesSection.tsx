@@ -3,6 +3,11 @@
 import { FaMicroscope } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/scroll-reveal";
 
 export function FacilitiesSection() {
   const facilities = [
@@ -39,7 +44,7 @@ export function FacilitiesSection() {
       className="py-12 md:py-20 px-4 sm:px-6 bg-white scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
+        <ScrollReveal className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Our Modern</span>{" "}
             <span className="hospital-green">FACILITIES</span>
@@ -48,39 +53,39 @@ export function FacilitiesSection() {
             Equipped with advanced diagnostic technology to provide prompt,
             accurate, and comprehensive healthcare services.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {facilities.map((fac, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default"
-            >
-              <div className="relative h-64 w-full bg-gray-50 flex items-center justify-center overflow-hidden">
-                <img
-                  src={fac.image}
-                  alt={fac.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <Badge className="absolute top-4 left-4 bg-hospital-blue text-white hover:bg-hospital-blue">
-                  {fac.badge}
-                </Badge>
-              </div>
-              <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-hospital-blue transition-colors duration-300 mb-3">
-                    {fac.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {fac.description}
-                  </p>
+            <StaggerItem key={index}>
+              <Card className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default">
+                <div className="relative h-64 w-full bg-gray-50 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={fac.image}
+                    alt={fac.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-hospital-blue text-white hover:bg-hospital-blue">
+                    {fac.badge}
+                  </Badge>
                 </div>
-              </CardContent>
-            </Card>
+                <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-hospital-blue transition-colors duration-300 mb-3">
+                      {fac.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {fac.description}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
 
           {/* Third Card for Many More Laboratory Facilities */}
-          <Card className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default sm:col-span-2 lg:col-span-1">
+          <StaggerItem className="sm:col-span-2 lg:col-span-1">
+          <Card className="group overflow-hidden border border-transparent hover:border-hospital-blue/20 rounded-2xl flex flex-col h-full bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-default">
             <CardContent className="p-6 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -111,7 +116,8 @@ export function FacilitiesSection() {
               </div>
             </CardContent>
           </Card>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </div>
     </section>
   );
