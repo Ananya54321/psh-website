@@ -7,6 +7,7 @@ export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { HeroSection } from "./HeroSection";
 export { ImportantAlert } from "./ImportantAlert";
+export { ScrollToTop } from "./ScrollToTop";
 export { ServicesSection } from "./ServicesSection";
 export { StatsSection } from "./StatsSection";
 export { TestimonialsSection } from "./TestimonialsSection";

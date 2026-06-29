@@ -2,6 +2,7 @@
 
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 function getInitials(name: string) {
   const cleanName = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Dr)\s+/i, "");
@@ -152,7 +153,7 @@ export function TestimonialsSection() {
   return (
     <section className="py-12 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-hospital-blue/5 to-hospital-green/5">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
+        <ScrollReveal className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Our Patient</span>{" "}
             <span className="hospital-green">TESTIMONIALS</span>
@@ -161,7 +162,7 @@ export function TestimonialsSection() {
             Real stories from our satisfied patients who have experienced our
             compassionate care and medical excellence
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="relative">
           {/* First row - left to right */}

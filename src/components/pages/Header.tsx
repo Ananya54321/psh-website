@@ -173,7 +173,7 @@ export function Header() {
             className={cn(
               "inline-flex h-9 items-center justify-center rounded-full px-4 text-xs font-extrabold transition-all duration-300 shadow-md gap-2 hover:scale-105 cursor-pointer relative overflow-hidden",
               isScrolled
-                ? "bg-gradient-to-r from-[#3e8aa1] to-[#4ea3ba] text-white shadow-[#3e8aa1]/20"
+                ? "bg-[#4ea3ba] text-white shadow-[#3e8aa1]/20"
                 : "bg-white text-[#3e8aa1] hover:bg-slate-50 shadow-black/20",
             )}
           >

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
 
 export function FAQSection() {
   const faqs = [
@@ -44,7 +45,7 @@ export function FAQSection() {
   return (
     <section className="py-16 md:py-24 px-4 sm:px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
+        <ScrollReveal className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Frequently Asked</span>{" "}
             <span className="hospital-green">QUESTIONS</span>
@@ -52,14 +53,14 @@ export function FAQSection() {
           <p className="text-base md:text-lg text-gray-500 dark:text-gray-400">
             Find answers to common questions about our services and facilities.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="w-full flex flex-col gap-4">
+        <StaggerContainer className="w-full flex flex-col gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
+              <StaggerItem key={faq.question}>
               <motion.div
-                key={faq.question}
                 layout
                 className={cn(
                   "w-full rounded-2xl transition-all duration-300 border border-transparent bg-white",
@@ -134,9 +135,10 @@ export function FAQSection() {
                   </div>
                 </div>
               </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

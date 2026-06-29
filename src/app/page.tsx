@@ -5,6 +5,7 @@ import {
   Footer,
   Header,
   HeroSection,
+  ScrollToTop,
   ServicesSection,
   TestimonialsSection,
 } from "@/components/pages";
@@ -24,6 +25,7 @@ export default function Home() {
       <FAQSection />
       {/* <ContactSection /> */}
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

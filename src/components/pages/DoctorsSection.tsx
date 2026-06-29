@@ -285,7 +285,7 @@ export function DoctorsSection() {
                   <button
                     type="button"
                     onClick={() => setShowAll(!showAll)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-hospital-blue text-hospital-blue hover:bg-hospital-blue hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-hospital-blue text-hospital-blue hover:bg-hospital-blue transition-all duration-300 shadow-sm cursor-pointer"
                   >
                     {showAll ? "Show Less" : "Show More Specialists"}
                     {showAll ? (
