@@ -70,19 +70,20 @@ export function FAQSection() {
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="mt-0.5 flex-shrink-0 text-hospital-blue focus:outline-none cursor-pointer"
+                    className="mt-0.5 flex-shrink-0 focus:outline-none cursor-pointer transition-transform duration-200 hover:scale-110"
+                    style={{ color: "var(--hospital-blue)" }}
                     aria-expanded={isOpen}
                   >
                     {isOpen ? (
                       // Circle Minus SVG
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.8"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
@@ -93,12 +94,12 @@ export function FAQSection() {
                       // Circle Plus SVG
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.8"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
