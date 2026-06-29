@@ -71,7 +71,7 @@ function TestimonialCard({ quote, name, designation }: TestimonialCardProps) {
             colorScheme.bg,
             colorScheme.text,
             colorScheme.border,
-            "group-hover:bg-hospital-blue/10 group-hover:text-hospital-blue group-hover:border-hospital-blue/20 group-hover:shadow-none"
+            "group-hover:bg-hospital-blue/10 group-hover:text-hospital-blue group-hover:border-hospital-blue/20 group-hover:shadow-none",
           )}
         >
           {getInitials(name)}

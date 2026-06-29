@@ -1,0 +1,3 @@
+1. in services section the cards are flipping when we hover in desktop. same interaction isnt possible on mobile. so on mobile i want them to flip on each tap. pls fix
+2. fix all the errors in Headers.tsx page. 
+3. now the navbar items arent justify-netween anymore but theyre in the vertical center of the screen. i want them to be at the starting of the parent div with a little bit of padding, say pt-16 rather than be at the center. pls fix

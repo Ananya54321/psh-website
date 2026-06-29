@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden py-20 sm:py-24 md:py-32 flex items-center min-h-[85vh] text-white"
+      className="relative overflow-hidden py-20 sm:py-24 md:py-32 lg:py-36 flex items-center min-h-[85vh] text-white"
     >
       {/* Full Background Video */}
       <video
@@ -177,10 +177,10 @@ export function HeroSection() {
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-hospital-orange leading-none drop-shadow-sm">
-                15+
+                7000+
               </div>
               <div className="text-[10px] sm:text-xs font-bold text-white mt-2 uppercase tracking-wider drop-shadow-xs">
-                Specialists
+                Patients Treated
               </div>
             </div>
           </motion.div>
