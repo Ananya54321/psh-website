@@ -22,17 +22,26 @@ interface FlipCardBackProps {
 export function FlipCard({ children, className }: FlipCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleCardClick = () => {
+    if (
+      typeof window !== "undefined" &&
+      (window.innerWidth < 1024 || window.matchMedia("(hover: none)").matches)
+    ) {
+      setIsFlipped((prev) => !prev);
+    }
+  };
+
   return (
     <div
       className={cn(
         "group perspective-1000 w-full h-80 cursor-pointer",
         className,
       )}
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={handleCardClick}
     >
       <div
         className={cn(
-          "relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180",
+          "relative w-full h-full transition-transform duration-700 transform-style-preserve-3d lg:group-hover:rotate-y-180",
           isFlipped && "rotate-y-180",
         )}
       >

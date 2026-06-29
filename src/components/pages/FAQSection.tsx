@@ -1,9 +1,8 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export function FAQSection() {
   const faqs = [
@@ -40,35 +39,103 @@ export function FAQSection() {
     },
   ];
 
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
-    <section className="py-12 md:py-20 px-4 sm:px-6 bg-gray-50 scroll-mt-20">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-gray-50 scroll-mt-20">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             <span className="hospital-blue">Frequently Asked</span>{" "}
-            <span className="hospital-green">Questions</span>
+            <span className="hospital-green">QUESTIONS</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600">
+          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400">
             Find answers to common questions about our services and facilities.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="bg-white rounded-lg border border-gray-200 px-6"
-            >
-              <AccordionTrigger className="text-left font-semibold text-hospital-blue hover:text-hospital-green transition-colors">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-600 leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="w-full flex flex-col gap-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={faq.question}
+                layout
+                className={cn(
+                  "w-full rounded-2xl transition-all duration-300 border border-transparent bg-white",
+                  isOpen ? " p-6 shadow-xs" : " p-4 shadow-xs px-6"
+                )}
+              >
+                <div className="flex items-start gap-4 text-left w-full">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="mt-0.5 flex-shrink-0 text-hospital-blue focus:outline-none cursor-pointer"
+                    aria-expanded={isOpen}
+                  >
+                    {isOpen ? (
+                      // Circle Minus SVG
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="8" y1="12" x2="16" y2="12" />
+                      </svg>
+                    ) : (
+                      // Circle Plus SVG
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="16" />
+                        <line x1="8" y1="12" x2="16" y2="12" />
+                      </svg>
+                    )}
+                  </button>
+                  <div className="flex-1 text-left">
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      className="w-full text-left font-semibold text-gray-900 dark:text-white text-sm md:text-base cursor-pointer focus:outline-none"
+                    >
+                      {faq.question}
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                          animate={{ height: "auto", opacity: 1, marginTop: 8 }}
+                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed"
+                        >
+                          {faq.answer}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

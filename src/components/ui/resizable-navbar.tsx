@@ -80,7 +80,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        width: visible ? "800px" : "100%",
+        width: visible ? "1000px" : "100%",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -90,7 +90,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         mass: 0.8,
       }}
       style={{
-        minWidth: "800px",
+        minWidth: visible ? "1000px" : "auto",
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full border border-transparent bg-transparent px-4 py-2 lg:flex transition-all duration-500 ease-in-out",
@@ -205,10 +205,10 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-40 w-screen h-[100dvh] bg-slate-50/70 dark:bg-neutral-950/98 backdrop-blur-xl flex flex-col items-center justify-between px-6 pt-24 pb-12 overflow-y-auto"
+          className="fixed inset-0 z-40 w-screen h-[100dvh] bg-slate-50/30 dark:bg-neutral-950/50 backdrop-blur-[80px] flex flex-col items-center justify-start px-6 pt-32 pb-12 overflow-y-auto"
           style={{
-            backdropFilter: "blur(36px)",
-            WebkitBackdropFilter: "blur(36px)",
+            backdropFilter: "blur(80px)",
+            WebkitBackdropFilter: "blur(80px)",
           }}
           onClick={onClose}
         >

@@ -30,7 +30,7 @@ const itemVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
+    transition: { duration: 0.4, ease: "easeOut" as const },
   },
 };
 
@@ -185,12 +185,7 @@ export function Header() {
           </a>
           <a
             href="tel:8801719855"
-            className={cn(
-              "inline-flex h-9 items-center justify-center rounded-full px-4 text-xs font-bold text-white transition-all duration-300 shadow-md gap-1.5 hover:scale-105 cursor-pointer",
-              isScrolled
-                ? "bg-hospital-blue hover:bg-[#2c6b7a] shadow-hospital-blue/10"
-                : "bg-hospital-orange hover:bg-orange-600 shadow-black/10",
-            )}
+            className="inline-flex h-9 bg-hospital-orange hover:bg-orange-600 shadow-black/10 items-center justify-center rounded-full px-4 text-xs font-bold text-white transition-all duration-300 shadow-md gap-1.5 hover:scale-105 cursor-pointer"
           >
             <span>📞</span>
             <span>8801719855</span>
@@ -213,7 +208,7 @@ export function Header() {
             className="flex items-center space-x-3 cursor-pointer hover:opacity-90 transition-opacity"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100">
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-100">
               <Image
                 src="/images/psh_logo.jpeg"
                 alt="Pavan Sai Hospitals"
@@ -266,14 +261,14 @@ export function Header() {
       <MobileNavMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-        className="h-auto justify-start gap-8 my-auto"
+        className="h-auto justify-start gap-8 mt-0"
       >
         {/* Main staggered container */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="flex flex-col w-full gap-8 pt-6"
+          className="flex flex-col w-full gap-12 pt-6"
         >
           {/* Centered/Top Navigation Links */}
           <div className="flex flex-col w-full gap-4 px-1">
@@ -284,7 +279,7 @@ export function Header() {
                   <Link
                     href={item.link}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="group p-3 px-4 bg-slate-50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center justify-between transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-pointer dark:bg-neutral-900/50 dark:hover:bg-neutral-800/80 w-full"
+                    className="group p-3 px-4 bg-slate-50 hover:bg-white border border-transparent hover:border-hospital-blue/20 rounded-2xl flex items-center justify-between transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer dark:bg-neutral-900/50 dark:hover:bg-neutral-800/80 w-full"
                   >
                     <div className="flex items-center gap-3 text-left min-w-0">
                       <div className="flex-shrink-0 p-2 rounded-xl bg-white dark:bg-neutral-800 group-hover:bg-hospital-blue/10 text-hospital-blue/80 group-hover:text-hospital-blue transition-colors duration-300 shadow-sm border border-gray-100/50 dark:border-neutral-700/50">
