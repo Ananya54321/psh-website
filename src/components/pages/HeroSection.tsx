@@ -47,7 +47,7 @@ export function HeroSection() {
           </motion.div>
 
           {/* Heading */}
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -55,7 +55,7 @@ export function HeroSection() {
           >
             Your Health, <br />
             <span className="text-hospital-green">Our Priority</span>
-          </motion.h2>
+          </motion.h1>
 
           {/* Paragraph */}
           <motion.p

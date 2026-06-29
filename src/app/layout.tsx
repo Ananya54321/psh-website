@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Raleway, Merriweather } from "next/font/google";
+import { Geist, Geist_Mono, Raleway, Merriweather, Bricolage_Grotesque } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -25,6 +25,12 @@ const merriweather = Merriweather({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage-grotesque",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
 
 export const metadata: Metadata = {
   title: "Pavan Sai Hospitals - Caring for Your Health",
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${merriweather.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${merriweather.variable} ${bricolageGrotesque.variable} antialiased`}
       >
         {children}
         <Toaster
