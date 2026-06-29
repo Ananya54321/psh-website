@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   FaBone,
   FaBrain,
@@ -16,8 +17,11 @@ import {
   FlipCardBack,
   FlipCardFront,
 } from "@/components/ui/flip-card";
+import { cn } from "@/lib/utils";
 
 export function ServicesSection() {
+  const [showAll, setShowAll] = useState(false);
+
   const services = [
     {
       title: "Orthopedics - Trauma Care",
@@ -166,7 +170,13 @@ export function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <FlipCard key={index} className="h-[380px]">
+            <FlipCard
+              key={index}
+              className={cn(
+                "h-[355px]",
+                index >= 3 && !showAll ? "hidden md:block" : ""
+              )}
+            >
               <FlipCardFront className="bg-white border border-gray-100 shadow-sm">
                 <div className="flex flex-col h-full">
                   {/* Image */}
@@ -186,20 +196,20 @@ export function ServicesSection() {
 
                   {/* Content */}
                   <div className="flex flex-col flex-1 px-5 pt-4 pb-4">
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="flex-shrink-0 bg-blue-50 text-hospital-blue rounded-xl p-2.5 shadow-sm mt-0.5">
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <div className="flex-shrink-0 bg-blue-50 text-hospital-blue rounded-xl p-2.5 shadow-sm">
                         <service.icon className="text-lg" />
                       </div>
-                      <h3 className="hospital-green text-lg font-semibold leading-snug">
+                      <h3 className="hospital-green text-[15px] font-semibold leading-snug">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                    <p className="text-gray-500 text-sm leading-relaxed">
                       {service.description}
                     </p>
-                    <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-end">
-                      <span className="text-xs text-gray-400 font-medium tracking-wide">
-                        Hover to see details →
+                    <div className="mt-auto pt-2.5 border-t border-gray-100 flex items-center justify-end">
+                      <span className="text-xs text-hospital-blue font-medium tracking-wide">
+                        Tap to see details →
                       </span>
                     </div>
                   </div>
@@ -207,39 +217,85 @@ export function ServicesSection() {
               </FlipCardFront>
 
               {/* Back of card */}
-              <FlipCardBack className="bg-hospital-blue text-white">
-                <div className="p-6 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="text-2xl text-blue-200">
-                        <service.icon />
-                      </div>
-                      <h3 className="text-xl font-semibold">{service.title}</h3>
+              <FlipCardBack
+                className="text-white overflow-hidden"
+                style={{
+                  background: "#2c6b7a",
+                }}
+              >
+                <div className="p-5 h-full flex flex-col relative">
+                  {/* Decorative background icon */}
+                  <div className="absolute -right-4 -bottom-4 opacity-[0.08] pointer-events-none select-none">
+                    <service.icon style={{ fontSize: "7rem" }} />
+                  </div>
+
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex-shrink-0 bg-white/20 rounded-xl p-2.5 backdrop-blur-sm border border-white/20">
+                      <service.icon className="text-xl text-white" />
                     </div>
-                    <p className="text-blue-100 mb-6 text-sm leading-relaxed">
-                      {service.longDescription}
+                    <div className="min-w-0">
+                      <Badge className="bg-hospital-orange/80 text-white text-[10px] px-2 py-0.5 mb-1">
+                        {service.category}
+                      </Badge>
+                      <h3 className="text-sm font-bold leading-tight text-white">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-px bg-white/20 mb-3" />
+
+                  {/* Long description */}
+                  <p className="text-white/85 text-[13px] leading-relaxed flex-1">
+                    {service.longDescription}
+                  </p>
+
+                  {/* Feature pills */}
+                  <div className="mt-3">
+                    <p className="text-[10px] uppercase tracking-widest text-white/55 font-semibold mb-2">
+                      Key Services
                     </p>
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-semibold text-blue-200">
-                        Key Services:
-                      </h4>
-                      <ul className="space-y-1">
-                        {service.features.map((feature, idx) => (
-                          <li
-                            key={idx}
-                            className="text-xs text-blue-100 flex items-center gap-2"
-                          >
-                            <div className="w-1 h-1 bg-blue-300 rounded-full"></div>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="flex flex-wrap gap-1.5">
+                      {service.features.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[11px] bg-white/15 border border-white/25 text-white/90 rounded-full px-2.5 py-0.5"
+                        >
+                          {feature}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
               </FlipCardBack>
             </FlipCard>
           ))}
+        </div>
+
+        {/* Mobile-only show more / show less button */}
+        <div className="mt-8 flex justify-center md:hidden">
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className={cn(
+              "flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all active:scale-95",
+              showAll
+                ? "border border-gray-300 text-gray-600 bg-white shadow-sm"
+                : "bg-hospital-blue text-white shadow-md hover:shadow-lg"
+            )}
+          >
+            {showAll ? (
+              "Show Less ↑"
+            ) : (
+              <>
+                View All Services
+                <span className="bg-white/25 rounded-full px-2 py-0.5 text-xs font-normal">
+                  +{services.length - 3} more
+                </span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>

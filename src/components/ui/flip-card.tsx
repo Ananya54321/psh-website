@@ -17,6 +17,7 @@ interface FlipCardFrontProps {
 interface FlipCardBackProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export function FlipCard({ children, className }: FlipCardProps) {
@@ -64,13 +65,14 @@ export function FlipCardFront({ children, className }: FlipCardFrontProps) {
   );
 }
 
-export function FlipCardBack({ children, className }: FlipCardBackProps) {
+export function FlipCardBack({ children, className, style }: FlipCardBackProps) {
   return (
     <div
       className={cn(
         "absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden rotate-y-180",
         className,
       )}
+      style={style}
     >
       {children}
     </div>
